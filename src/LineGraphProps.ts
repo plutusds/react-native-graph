@@ -109,6 +109,8 @@ export type AnimatedLineGraphProps = BaseLineGraphProps & {
    * The element that gets rendered below the Graph (usually the "min" point/value of the Graph)
    */
   BottomAxisLabel?: () => React.ReactElement | null
+
+  dotX?: SharedValue<number>
 }
 
 export type LineGraphProps =

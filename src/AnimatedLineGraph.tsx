@@ -72,6 +72,7 @@ export function AnimatedLineGraph({
   verticalPadding = lineThickness,
   TopAxisLabel,
   BottomAxisLabel,
+  dotX,
   ...props
 }: AnimatedLineGraphProps): React.ReactElement {
   const [width, setWidth] = useState(0)
@@ -344,6 +345,9 @@ export function AnimatedLineGraph({
       const y = getYForX(commands.current, fingerX)
 
       if (y != null) {
+        if (dotX) {
+          dotX.value = fingerX
+        }
         circleX.current = fingerX
         circleY.current = y
       }
@@ -375,6 +379,7 @@ export function AnimatedLineGraph({
     [
       circleX,
       circleY,
+      dotX,
       drawingWidth,
       horizontalPadding,
       isActive.value,
